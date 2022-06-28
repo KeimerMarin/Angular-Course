@@ -1,9 +1,24 @@
-<main>
-  <header>
-    app-toolbar
-</header>
-<nav>
-  app-nabvar
-</nav>
-  <app-content-area></app-content-area>
-</main>
+<div class="container">
+  <h1>Listado de Alumnos</h1>
+  <div class="form-group">
+    <input type="text" class="forms-control" placeholder="Buscar" [(ngModel)]="filterstudents" name="filterstudents"/>
+  </div>
+</div>
+<div class="container">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>NOMBRE</th>
+        <th>RUT</th>
+        <th>NOTA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of students | filter: filterstudents">
+        <td>{{ e.name }}</td>
+        <td>{{ e.rut }}</td>
+        <td>{{ e.score }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
